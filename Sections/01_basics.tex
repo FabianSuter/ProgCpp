@@ -1,0 +1,106 @@
+\section{Basics}
+
+\subsection{Trivia}
+
+Entstanden durch Stroustrup 1986.
+
+\subsection{Grundsätzlich}
+
+C++ ist sehr ähnlich zu C. Es gibt aber einige wichtige Änderungen zu C:
+
+\begin{itemize}[itemsep=1pt, parsep=0pt]
+    \item zu benutzender Compiler heisst jetzt \say{clang++}
+    \item Nativen Bool Typ : \textbf{bool}
+    \item richtiges Konstanten Schlüsselwort : \textbf{constexpr}
+    \item Standartbibliotheken haben kein .h mehr beim Aufrufen
+    \item C Standartbibliotheken Können weiter verwendet werden, haben aber ein C im Header(stdio.h $\rightarrow$ cstdio)
+    \item Char-Literale (z. B. 'A') haben in C++ den Datentyp char (in C war es int)(Brauchen ein const)
+    \item Es gibt benannte Namensräume. Wichtigster Namensraum für die STL: std
+    \item For Each loop support (siehe Kapitel \ref{forEach})
+    \item ...
+\end{itemize}
+
+\subsection{Sourcecode Hello world CPP}
+
+\lstinputlisting{code/hello_World.cpp}
+
+\subsection{For each Loop}\label{forEach}
+
+\verb|For each| - Loops laufen automatisch ein Array ab, ohne das zuerst die Grösse ermittelt werden muss. 
+Die C - \verb|for| - Loop Syntax wurde etwas erweitert.
+Syntax:
+
+\lstinputlisting{code/forEach.cpp}
+
+Siehe: Als Arrayname wird ein Pointer auf das Array verlangt, nicht auf das erste Element!  
+Ein \verb|For each| funktioniert \textbf{nicht} mit einem \textbf{Pointerpointer}. 
+
+\subsection{Streams}
+
+Ein Stream repräsentiert einen generischen sequentiellen Datenstrom. Z.b: ein Eingabefeld, Dateien oder Netzwerktraffic.\\
+Die wichtigsten Operatoren sind:
+
+\begin{itemize}[itemsep=1pt, parsep=0pt]
+    \item \say{$<<$} Inserter $\rightarrow$  Daten einfügen
+    \item \say{$>>$} Extractor $\rightarrow$ Daten herausholen
+\end{itemize}
+
+Für Standardklassen sind diese Operatoren bereits definiert.
+
+\subsubsection{Standardstreams}
+
+\begin{itemize}[itemsep=1pt, parsep=0pt]
+    \item \textbf{cin} : Standard Eingabe
+    \item \textbf{cout} : Standard Ausgabe
+    \item \textbf{cerr} : Standard Fehlerausgabe, möglicherweise mit clog gekoppelt 
+    \item \textbf{clog} : Standard Log Ausgabe 
+\end{itemize}
+
+\subsubsection{Streamformatierung}
+
+Formatierungen der Streams können mit folgenden Schlüsselwörtern erreicht werden:
+
+
+\begin{center}
+    \begin{tabular}{ll}
+        \rowcolor[RGB]{239,239,239} 
+        \textbf{Flag} & \textbf{Wirkung}                                        \\ \hline
+        boolalpha     & bool-Werte werden textuell ausgegeben                   \\
+        oct           & Ausgabe erfolgt oktal                                   \\
+        dec           & Ausgabe erfolgt dezimal                                 \\
+        hex           & Ausgabe erfolgt hexadezimal                             \\
+        showbase      & Zahlenbasis wird gezeigt                                \\
+        showpoint     & Dezimalpunkt wird immer ausgegeben                      \\
+        showpos       & Vorzeichen bei positiven Zahlen anzeigen                \\
+        internal      & Ausgabe innerhalb Feld                                  \\
+        left          & linksbündig                                             \\
+        right         & rechtsbündig                                            \\
+        fixed         & Gleitkommazahlen im Fixpunktformat                      \\
+        scientific    & Gleitkommazahl wissenschaftlich                         \\
+        skipws        & Führende Whitespaces nicht anzeigen                     \\
+        unitbuf       & Leert Buffer des Outputstreams nach Schreiben           \\
+        uppercase     & Alle Kleinbuchstaben in Grossbuchstaben wandeln
+    \end{tabular}
+\end{center}
+
+Folgende Funktionen setzten Header \textbf{$<$iomanip$>$} voraus:\\
+
+\textbf{setw(n)}\\
+
+Wenn diese Funktion mit einer ganzen Zahl dem Cout übergeben wird, wird Cout \textbf{mindestens so viele Zeichen} übergeben. 
+Falls Zeichen fehlen, werden diese mit dem Füllzeichen (standardmässig das Leerzeichen) aufgefüllt. 
+Diese Funktion setzt die Weite nur \textbf{einmalig}.\\
+
+\textbf{setprecision(n)}\\
+
+Diese Funktion setzt die Anzahl Dezimalstellen (vor und nach dem Komma), welche ausgegeben werden. 
+In Kombination mit \textbf{fixed} werden nur die Anzahl \textbf{Nachkommastellen} gesetzt. 
+Die gegebenen Werte bleiben über mehrere Einfügeoperationen erhalten (muss man nur einmal setzen). 
+
+\section{Namespaces}
+
+Namespaces helfen, Namenskonflikte zu verhindern. 
+Sie fügen ein Namensvorsatz zu allen Variablen. 
+Können sehr mächtig sein, führt aber zu Komplexität
+
+\lstinputlisting{code/namespace.cpp}
