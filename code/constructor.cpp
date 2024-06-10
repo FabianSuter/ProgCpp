@@ -25,10 +25,10 @@ Storage::~Storage(){ // Destruktor
     size = 0; // Speicher der allokiert wurde sollte hier freigegeben werden
 }
 void Storage::add(int in){
-    // todo
+    // do something
 }
 void Storage::nix(Storage inC){
-    // todo
+    // do something
 }
 
 // ---- End cpp File
