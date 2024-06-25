@@ -1,6 +1,8 @@
+//Deklaration
 template<typename T>
 T sumOfElements(T* array, size_t size);
 
+//Implementierung
 template<typename T>
 T sumOfElements(T* array, size_t size) {
     T sum{};
