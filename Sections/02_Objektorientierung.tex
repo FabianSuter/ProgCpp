@@ -92,7 +92,7 @@ Besteht immer aus 3 Boxen:\\
     \item + : public (überall sichtbar)
     \item - : private (nur in  aktueller Klasse sichtbar)
     \item \# : protected (in aktueller und Unterklassen sichtbar)
-    \item \textit{Italic} : Funktion oder Klasse ist Abstrakt (=0)
+    \item \textit{Italic} : Funktion oder Klasse ist Abstrakt (=0) $\Rightarrow$ \ref{Abstrakt}
     \item \underline{Unterstrichen} : Funktion oder Attribut ist static
     \item $<\text{Name der Klasse}>$ :  Konstruktor
     \item $\sim<\text{Name der Klasse}>$ : Destruktor
@@ -169,7 +169,7 @@ Hat keine Aufrufparameter und auch kein Rückgabewert.
 Es kann immer nur \textbf{einen} Destruktor geben
 Wenn der Destruktor fertig ist, sollte kein Speicher mehr vom Objekt belegt sein.\\
 Destruktoren sollten immer \textbf{Virtuell definiert werden} (siehe \ref{Virtual}). 
-Mit anderen Virtuellen Funktionen \textbf{müssen} sie Virtuel definiert werden. 
+Mit anderen Virtuellen Funktionen \textbf{müssen} sie \verb|virtual| definiert werden. 
 Der Funktionsname beginnt mit einer Tilde. 
 Der Destruktor wird evtl. auch Implizit aufgerufen z.b., wenn aus einer Funktion wieder herausgesprungen wird. 
 
@@ -474,9 +474,9 @@ Die Unterklassen zeigen wiederum auf denselben Vtable.
 
 \nextcol
 
-\subsection{Abstrakte Klassen}
+\subsection{Abstrakte Klassen}\label{Abstrakt}
 
-Wenn Klassen zwar festlegt, dass eine Methode da ist, diese aber noch nicht implementieren, nennt man das eine abstrakte Methode. 
+Wenn eine Klasse zwar festlegt, dass eine Methode da ist aber sie noch nicht implementiert, nennt man das eine abstrakte Methode. 
 Man spricht dann von einer abstrakten Klasse.
 Eine abstrakte Methode wird in UML \textit{\textbf{kursiv}} dargestellt.
 Es ist egal, ob die abstrakten Methoden selbst definiert sind oder geerbt. 

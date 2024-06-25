@@ -10,6 +10,6 @@ Dozent& operator+(Dozent& in1, Dozent& in2);
 
 // ------ start cpp ------
 Dozent& operator+(Dozent& in1, Dozent& in2){
-        in1.numb *= in2.numb;
+        in1.numb += in2.numb;
         return in1;
 }
